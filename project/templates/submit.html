@@ -1,22 +1,63 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>TerraFormer's Scoresheet</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-		<link rel="stylesheet" href="./styles/main.css">
-	</head>
-	<body class="overflow-auto">
-	<table border = 1>
-    {% for key, value in form.items() %}
-
-    <tr>
-       <th> {{ key }} </th>
-       <td> {{ value }} </td>
-    </tr>
-
-    {% endfor %}
- </table>
-	</body>
+    <head>
+        <title>TerraFormer's Scoresheet</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+        <link rel="stylesheet" href="./styles/main.css" />
+    </head>
+    <body class="overflow-auto">
+        <table class="table-responsive shadow p-3 mb-5 bg-black, table table-hover rounded">
+            <th></th>
+            <th>Aashish</th>
+            <th>Karan</th>
+            <th>Mohit</th>
+            <tr>
+                <td>Terraform Rating</td>
+                {% for key, value in form.items() %} {% if 'tr' in key %}
+                <!--<td> {{ key }} </td>-->
+                <td>{{ value }}</td>
+                {% endif %} {% endfor %}
+            </tr>
+            <tr>
+                <td>Awards</td>
+                {% for key, value in form.items() %} {% if 'award' in key %}
+                <!--<td> {{ key }} </td>-->
+                <td>{{ value }}</td>
+                {% endif %} {% endfor %}
+            </tr>
+            <tr>
+                <td>Milestone</td>
+                {% for key, value in form.items() %} {% if 'milestone' in key %}
+                <!--<td> {{ key }} </td>-->
+                <td>{{ value }}</td>
+                {% endif %} {% endfor %}
+            </tr>
+            <tr>
+                <td>Gameboard</td>
+                {% for key, value in form.items() %} {% if 'gameboard' in key %}
+                <!--<td> {{ key }} </td>-->
+                <td>{{ value }}</td>
+                {% endif %} {% endfor %}
+            </tr>
+            <tr>
+                <td>Cards</td>
+                {% for key, value in form.items() %} {% if 'card' in key %}
+                <!--<td> {{ key }} </td>-->
+                <td>{{ value }}</td>
+                {% endif %} {% endfor %}
+            </tr>
+            <tr>
+                <td>Total</td>
+                {% for key, value in form.items() %} {% if 'total' in key %}
+                <!--<td> {{ key }} </td>-->
+                <td>{{ value }}</td>
+                {% endif %} {% endfor %}
+            </tr>
+        </table>
+    </body>
 </html>
+
+<!--{'tr1': 1, 'tr2': 1, 'tr3': 1, 'award1': 1, 'award2': 1, 'award3': 1, 'milestone1': 1, 'milestone2': 1, 'milestone3': 1, 'gameboard1': 1, 'gameboard2': 1, 'gameboard3': 1, 'cards1': 1, 'cards2': 1, 'cards3': 1, 'total1': 5, 'total2': 5, 'total3': 5}
+-->
