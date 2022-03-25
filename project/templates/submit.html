@@ -8,9 +8,15 @@
 		<link rel="stylesheet" href="./styles/main.css">
 	</head>
 	<body class="overflow-auto">
-	Scoresheet Submitted<br> 
-	Ashish: {{ t1 }}<br>
-    Karan: {{ t2 }}<br>
-    Mohit: {{ t3 }}<br>
+	<table border = 1>
+    {% for key, value in form.items() %}
+
+    <tr>
+       <th> {{ key }} </th>
+       <td> {{ value }} </td>
+    </tr>
+
+    {% endfor %}
+ </table>
 	</body>
 </html>
