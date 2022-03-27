@@ -14,40 +14,22 @@
             <th>Karan</th>
             <th>Mohit</th>
             <tr>
-                <td>Terraform Rating</td>
-                {% for key, value in form.items() %} {% if 'tr' in key %}
-                <!--<td> {{ key }} </td>-->
-                <td>{{ value }}</td>
-                {% endif %} {% endfor %}
+            	
+            	{% for k in scoreitems %}
+                <tr>
+                	<td>{{ k }}</td>
+                	{% for key, value in form.items() %} 
+                
+                		{% if k.lower() in key %}
+                			<td>{{ value }}</td>
+                		{% endif %} 
+
+                	{% endfor %}
+                	</tr>
+                
+                {% endfor %}
             </tr>
-            <tr>
-                <td>Awards</td>
-                {% for key, value in form.items() %} {% if 'award' in key %}
-                <!--<td> {{ key }} </td>-->
-                <td>{{ value }}</td>
-                {% endif %} {% endfor %}
-            </tr>
-            <tr>
-                <td>Milestone</td>
-                {% for key, value in form.items() %} {% if 'milestone' in key %}
-                <!--<td> {{ key }} </td>-->
-                <td>{{ value }}</td>
-                {% endif %} {% endfor %}
-            </tr>
-            <tr>
-                <td>Gameboard</td>
-                {% for key, value in form.items() %} {% if 'gameboard' in key %}
-                <!--<td> {{ key }} </td>-->
-                <td>{{ value }}</td>
-                {% endif %} {% endfor %}
-            </tr>
-            <tr>
-                <td>Cards</td>
-                {% for key, value in form.items() %} {% if 'card' in key %}
-                <!--<td> {{ key }} </td>-->
-                <td>{{ value }}</td>
-                {% endif %} {% endfor %}
-            </tr>
+            
             <tr>
                 <td>Total</td>
                 {% for key, value in form.items() %} {% if 'total' in key %}

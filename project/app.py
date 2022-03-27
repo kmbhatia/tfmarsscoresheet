@@ -19,12 +19,13 @@ def submit():
 		formdict2 = dict((k, [(int(str(s))) for s in v][0]) for k,v in formdict.items())
 
 		#print(formdict2[tr1])
-		formdict2['total1'] = int(request.form.get("tr1"))+int(request.form.get("award1"))+int(request.form.get("milestone1"))+int(request.form.get("gameboard1"))+int(request.form.get("cards1"))
-		formdict2['total2'] = int(request.form.get("tr2"))+int(request.form.get("award2"))+int(request.form.get("milestone2"))+int(request.form.get("gameboard2"))+int(request.form.get("cards2"))
-		formdict2['total3'] = int(request.form.get("tr3"))+int(request.form.get("award3"))+int(request.form.get("milestone3"))+int(request.form.get("gameboard3"))+int(request.form.get("cards3"))
-		
+		formdict2['total1'] = int(request.form.get("terraformrating1"))+int(request.form.get("award1"))+int(request.form.get("milestone1"))+int(request.form.get("gameboard1"))+int(request.form.get("cards1"))
+		formdict2['total2'] = int(request.form.get("terraformrating2"))+int(request.form.get("award2"))+int(request.form.get("milestone2"))+int(request.form.get("gameboard2"))+int(request.form.get("cards2"))
+		formdict2['total3'] = int(request.form.get("terraformrating3"))+int(request.form.get("award3"))+int(request.form.get("milestone3"))+int(request.form.get("gameboard3"))+int(request.form.get("cards3"))
+		scoreitems =['TerraformRating','Award', 'Milestone','Gameboard','Cards']
+
 		print(formdict2)
-		return render_template("submit.html", form=formdict2)
+		return render_template("submit.html", form=formdict2, scoreitems=scoreitems)
 
 
 					
