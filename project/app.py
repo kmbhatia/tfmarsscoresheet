@@ -21,13 +21,14 @@ def submit():
 	if request.method == 'POST':
 		print(request.form)
 		formdict =  request.form.to_dict(flat=False)
-		formdict2 = dict((k, [((str(s))) for s in v][0]) for k,v in formdict.items())
+		formdict2 = dict((k, [((str(s))) for s in v] [0] ) for k,v in formdict.items())
 		print(formdict2)
 		playercount = int(len(formdict2.keys())/5)
-		scoreitems =['TerraformRating','Award', 'Milestone','Gameboard','Cards']
+		for x in range(playercount-1):
+			formdict2['total'+str(x+1)] = int(request.form.get("terraformrating"+str(x+1)))+int(request.form.get("award"+str(x+1)))+int(request.form.get("milestone"+str(x+1)))+int(request.form.get("gameboard"+str(x+1)))+int(request.form.get("cards"+str(x+1)))
+			print(formdict2['total'+str(x+1)])
+		scoreitems =['TerraformRating','Award', 'Milestone','Gameboard','Cards', 'Total']
 
 		return render_template("submit.html", form=formdict2, scoreitems=scoreitems, playercount=playercount)
 
-#ImmutableMultiDict([('player1', 'karan'), ('terraformrating1', '1'), ('award1', '1'), ('milestone1', '1'), ('gameboard1', '1'), ('cards1', '1'), ('player2', 'aashish'), ('terraformrating2', '1'), ('award2', '1'), ('milestone2', '1'), ('gameboard2', '1'), ('cards2', '1')])
 
-#{'terraformrating1': 1, 'award1': 1, 'milestone1': 1, 'gameboard1': 1, 'cards1': 1, 'terraformrating2': 1, 'award2': 1, 'milestone2': 1, 'gameboard2': 1, 'cards2': 1}

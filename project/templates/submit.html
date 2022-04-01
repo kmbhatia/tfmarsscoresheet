@@ -11,10 +11,12 @@
     	<table class="table-responsive shadow p-3 mb-5 bg-black, table table-hover rounded">
       	<th></th>
 
-      	{% for i in range(playercount) %}
-      	<th>
-      		Player{{i+1}}
-      	</th>  
+      	{% for key, value in form.items() %}
+      	{% if "player" in key %}
+      	<th>{{value}}
+      		
+      	</th>
+      	{%endif%}  
       	{% endfor %}
             <tr>
             	{% for k in scoreitems %}
@@ -31,9 +33,7 @@
                 
                 {% endfor %}
             </tr>
+
         </table>
     </body>
 </html>
-
-<!--ImmutableMultiDict([('terraformrating1', '1'), ('award1', '1'), ('milestone1', '1'), ('gameboard1', '1'), ('cards1', '1'), ('terraformrating2', '1'), ('award2', '1'), ('milestone2', '1'), ('gameboard2', '1'), ('cards2', '1')])
--->

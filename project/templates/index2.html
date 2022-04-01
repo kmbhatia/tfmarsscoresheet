@@ -18,9 +18,9 @@
                     <tbody>
                         {% for k in range(playercount) %}
                         <tr>
-                            <td><input type="text" class="form-control" name="player{{k+1}}" placeholder="playername" /></td>
+                            <td><input type="text" class="form-control" name="player{{k+1}}" placeholder="playername" required="true"/></td>
                             {% for element in elementarray%}
-                            <td><input type="number" class="form-control" name="{{element}}{{k+1}}" placeholder="{{element}}" /></td>
+                            <td><input type="number" class="form-control" name="{{element}}{{k+1}}" placeholder="{{element}}" required="true"/></td>
                             {%endfor%}
                         </tr>
 
