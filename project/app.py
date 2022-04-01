@@ -3,30 +3,31 @@ from flask_wtf import FlaskForm
 
 from werkzeug.datastructures import ImmutableMultiDict
 
-
 app = Flask(__name__)
+
+@app.route('/home', methods=['GET','POST'])
+def home():
+	if request.method == 'GET':
+		return render_template('home.html')
 
 @app.route('/', methods=['GET','POST'])
 def index():
-	if request.method == 'GET':
-		return render_template('index.html')
+	if request.method == 'POST':
+		elementarray = ['terraformrating','award','milestone','gameboard','cards']
+		return render_template('index2.html', playercount=int(request.form.get('playercount')), elementarray=elementarray)
 
 @app.route('/submit', methods=['GET','POST'])
 def submit():
 	if request.method == 'POST':
-		form =request.form
-		formdict =  form.to_dict(flat=False)
-		formdict2 = dict((k, [(int(str(s))) for s in v][0]) for k,v in formdict.items())
-
-		#print(formdict2[tr1])
-		formdict2['total1'] = int(request.form.get("terraformrating1"))+int(request.form.get("award1"))+int(request.form.get("milestone1"))+int(request.form.get("gameboard1"))+int(request.form.get("cards1"))
-		formdict2['total2'] = int(request.form.get("terraformrating2"))+int(request.form.get("award2"))+int(request.form.get("milestone2"))+int(request.form.get("gameboard2"))+int(request.form.get("cards2"))
-		formdict2['total3'] = int(request.form.get("terraformrating3"))+int(request.form.get("award3"))+int(request.form.get("milestone3"))+int(request.form.get("gameboard3"))+int(request.form.get("cards3"))
+		print(request.form)
+		formdict =  request.form.to_dict(flat=False)
+		formdict2 = dict((k, [((str(s))) for s in v][0]) for k,v in formdict.items())
+		print(formdict2)
+		playercount = int(len(formdict2.keys())/5)
 		scoreitems =['TerraformRating','Award', 'Milestone','Gameboard','Cards']
 
-		print(formdict2)
-		return render_template("submit.html", form=formdict2, scoreitems=scoreitems)
+		return render_template("submit.html", form=formdict2, scoreitems=scoreitems, playercount=playercount)
 
+#ImmutableMultiDict([('player1', 'karan'), ('terraformrating1', '1'), ('award1', '1'), ('milestone1', '1'), ('gameboard1', '1'), ('cards1', '1'), ('player2', 'aashish'), ('terraformrating2', '1'), ('award2', '1'), ('milestone2', '1'), ('gameboard2', '1'), ('cards2', '1')])
 
-					
-
+#{'terraformrating1': 1, 'award1': 1, 'milestone1': 1, 'gameboard1': 1, 'cards1': 1, 'terraformrating2': 1, 'award2': 1, 'milestone2': 1, 'gameboard2': 1, 'cards2': 1}

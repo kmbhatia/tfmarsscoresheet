@@ -8,13 +8,15 @@
         <link rel="stylesheet" href="./styles/main.css" />
     </head>
     <body class="overflow-auto">
-        <table class="table-responsive shadow p-3 mb-5 bg-black, table table-hover rounded">
-            <th></th>
-            <th>Aashish</th>
-            <th>Karan</th>
-            <th>Mohit</th>
+    	<table class="table-responsive shadow p-3 mb-5 bg-black, table table-hover rounded">
+      	<th></th>
+
+      	{% for i in range(playercount) %}
+      	<th>
+      		Player{{i+1}}
+      	</th>  
+      	{% endfor %}
             <tr>
-            	
             	{% for k in scoreitems %}
                 <tr>
                 	<td>{{ k }}</td>
@@ -29,17 +31,9 @@
                 
                 {% endfor %}
             </tr>
-            
-            <tr>
-                <td>Total</td>
-                {% for key, value in form.items() %} {% if 'total' in key %}
-                <!--<td> {{ key }} </td>-->
-                <td>{{ value }}</td>
-                {% endif %} {% endfor %}
-            </tr>
         </table>
     </body>
 </html>
 
-<!--{'tr1': 1, 'tr2': 1, 'tr3': 1, 'award1': 1, 'award2': 1, 'award3': 1, 'milestone1': 1, 'milestone2': 1, 'milestone3': 1, 'gameboard1': 1, 'gameboard2': 1, 'gameboard3': 1, 'cards1': 1, 'cards2': 1, 'cards3': 1, 'total1': 5, 'total2': 5, 'total3': 5}
+<!--ImmutableMultiDict([('terraformrating1', '1'), ('award1', '1'), ('milestone1', '1'), ('gameboard1', '1'), ('cards1', '1'), ('terraformrating2', '1'), ('award2', '1'), ('milestone2', '1'), ('gameboard2', '1'), ('cards2', '1')])
 -->
