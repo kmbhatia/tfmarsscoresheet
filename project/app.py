@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, redirect, session
 from flask_wtf import FlaskForm
 
-from werkzeug.datastructures import ImmutableMultiDict
-
 app = Flask(__name__)
 
 @app.route('/home', methods=['GET','POST'])
