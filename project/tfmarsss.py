@@ -1,22 +1,21 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, Blueprint
 from flask_wtf import FlaskForm
 
-from werkzeug.datastructures import ImmutableMultiDict
 
-app = Flask(__name__)
+bp = Blueprint('tfmarsss',__name__)
 
-@app.route('/home', methods=['GET','POST'])
+@bp.route('/home', methods=['GET','POST'])
 def home():
 	if request.method == 'GET':
 		return render_template('home.html')
 
-@app.route('/', methods=['GET','POST'])
+@bp.route('/', methods=['GET','POST'])
 def index():
 	if request.method == 'POST':
 		elementarray = ['terraformrating','award','milestone','gameboard','cards']
 		return render_template('index2.html', playercount=int(request.form.get('playercount')), elementarray=elementarray)
 
-@app.route('/submit', methods=['GET','POST'])
+@bp.route('/submit', methods=['GET','POST'])
 def submit():
 	if request.method == 'POST':
 		print(request.form)
