@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, session, Blueprint
 from flask_wtf import FlaskForm
 
 
-bp = Blueprint('urlshort',__name__)
+bp = Blueprint('tfmarsss',__name__)
 
 @bp.route('/home', methods=['GET','POST'])
 def home():
